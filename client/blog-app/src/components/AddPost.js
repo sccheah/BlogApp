@@ -10,7 +10,7 @@ class AddPost extends Component {
   }
 
   handleSubmit(event) {
-    if (!this.refs.post.value) {
+    if (!this.refs.post.value || !this.refs.post.value.trim()) {
       alert('Content is required to submit a post!');
     } else {
       this.setState({newPost: {
@@ -19,6 +19,8 @@ class AddPost extends Component {
       }}, () => {  // callback func
         this.props.addPost(this.state.newPost); // send the post up
       })
+
+      this.refs.post.value = "";
     }
 
     event.preventDefault(); // prevents default action
