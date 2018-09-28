@@ -1,1 +1,1 @@
-# BlogApp
+# JournalApp
