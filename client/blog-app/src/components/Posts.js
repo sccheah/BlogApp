@@ -1,0 +1,30 @@
+import React, { Component } from 'react';
+import PostItem from './PostItem';
+
+class Posts extends Component {
+
+  deletePost(id) {
+    this.props.onDelete(id);
+  }
+
+  render() {
+    let postItems;  // store all posts into an array of PostItem
+
+    if (this.props.posts) {
+      postItems = this.props.posts.map(post => {
+        return (
+          <PostItem onDelete={this.deletePost.bind(this)} key={post.id} post={post} />
+        );
+      });
+    }
+
+    return (
+      <div>
+        <h3>Posts</h3>
+        {postItems} 
+      </div>
+    );
+  }
+}
+
+export default Posts;

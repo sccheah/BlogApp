@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import AddPost from './components/AddPost';
+import Posts from './components/Posts';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     }
   }
 
+  // should make an API call to server to retrieve posts from database later
   getPosts() {
     let posts = [
       {
@@ -34,6 +36,7 @@ class App extends Component {
     this.getPosts();
   }
 
+  // adds a new post to the array. Should update database later
   handleAddPost(newPost) {
     let posts = this.state.posts;
     posts.unshift(newPost);
@@ -42,13 +45,20 @@ class App extends Component {
     console.log(this.state.posts);
   }
 
+  handleDeletePost(id) {
+    let posts = this.state.posts;
+    let index = posts.findIndex(post => post.id === id);
+
+    posts.splice(index, 1);
+    this.setState({posts: posts});
+  }
+
   render() {
     return (
       <div className="App">
       <Header />
       <AddPost addPost={this.handleAddPost.bind(this)} />
-      {//<Posts posts={this.state.posts} />
-      }
+      <Posts onDelete={this.handleDeletePost.bind(this)} posts={this.state.posts} />
       </div>
     );
   }
