@@ -14,22 +14,9 @@ class App extends Component {
 
   // should make an API call to server to retrieve posts from database later
   getPosts() {
-    let posts = [
-      {
-        id: '1',
-        content: 'hello'
-      },
-      {
-        id: '2',
-        content: 'goodbye'
-      },
-      {
-        id: '3',
-        content: 'Third post'
-      }
-    ];
-
-    this.setState({posts: posts});
+    fetch('/api/posts')
+      .then(res => res.json())
+      .then(posts => this.setState({posts}, () => console.log('Posts fetched... ', posts)));
   }
 
   componentWillMount() {
