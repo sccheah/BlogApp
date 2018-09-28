@@ -51,6 +51,7 @@ class App extends Component {
 
     posts.splice(index, 1);
     this.setState({posts: posts});
+    console.log(this.state.posts);
   }
 
   render() {
