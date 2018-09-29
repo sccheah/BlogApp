@@ -34,9 +34,10 @@ class App extends Component {
       body: JSON.stringify({
         newPost: newPost
       })
-    });
+    }).then(res => res.text);
+    // .then(this.getPosts()); // test to see if posting and reading updated info on server is correct 
 
-    // this.getPosts(); test to see if posting and reading updated info on server is correct 
+    // update locally
     let posts = this.state.posts;
     posts.unshift(newPost);
 
@@ -45,6 +46,20 @@ class App extends Component {
   }
 
   handleDeletePost(id) {
+
+    fetch('/api/posts', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id
+      })
+    }).then(res => res.text)
+    // .then(this.getPosts()); // test to see if posting and reading updated info on server is correct 
+
+    // update locally
     let posts = this.state.posts;
     let index = posts.findIndex(post => post.id === id);
 
