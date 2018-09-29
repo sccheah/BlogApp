@@ -25,11 +25,23 @@ class App extends Component {
 
   // adds a new post to the array. Should update database later
   handleAddPost(newPost) {
+    fetch('/api/posts', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        newPost: newPost
+      })
+    });
+
+    // this.getPosts(); test to see if posting and reading updated info on server is correct 
     let posts = this.state.posts;
     posts.unshift(newPost);
 
     this.setState({posts: posts});
-    console.log(this.state.posts);
+    console.log(`posting ${newPost} to server...`);
   }
 
   handleDeletePost(id) {

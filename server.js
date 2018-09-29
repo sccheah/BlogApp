@@ -1,15 +1,21 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.get('/api/posts', (req, res) => {
-  const posts = [
-    {id: '1', content: 'hello'},
-    {id: '2', content: 'goodbye'},
-    {id: '3', content: 'Third post'}
-  ];
+let posts = [
+];
 
+app.use(bodyParser.json());
+
+app.get('/api/posts', (req, res) => {
   res.json(posts);
+});
+
+app.post('/api/posts', (req, res) => {
+  console.log('received: ', req.body.newPost);
+
+  posts.unshift(req.body.newPost);
 });
 
 const port = 5000;
