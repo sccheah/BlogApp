@@ -12,7 +12,6 @@ class App extends Component {
     }
   }
 
-  // should make an API call to server to retrieve posts from database later
   getPosts() {
     fetch('/api/posts')
       .then(res => res.json())
@@ -23,7 +22,7 @@ class App extends Component {
     this.getPosts();
   }
 
-  // adds a new post to the array. Should update database later
+  // adds a new post to the database
   handleAddPost(newPost) {
     fetch('/api/posts', {
       method: 'POST',
