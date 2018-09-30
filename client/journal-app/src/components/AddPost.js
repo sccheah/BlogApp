@@ -15,7 +15,8 @@ class AddPost extends Component {
     } else {
       this.setState({newPost: {
         id: uuid.v4(),
-        content: this.refs.post.value
+        content: this.refs.post.value,
+        date: Date.now
       }}, () => {  // callback func
         this.props.addPost(this.state.newPost); // send the post up
       })

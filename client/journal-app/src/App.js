@@ -45,7 +45,7 @@ class App extends Component {
     console.log(`posting ${newPost} to server...`);
   }
 
-  handleDeletePost(id) {
+  handleDeletePost(post) {
 
     fetch('/api/posts', {
       method: 'DELETE',
@@ -54,14 +54,15 @@ class App extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        id: id
+        id: post.id,
+        content: post.content
       })
     }).then(res => res.text)
     // .then(this.getPosts()); // test to see if posting and reading updated info on server is correct 
 
     // update locally
     let posts = this.state.posts;
-    let index = posts.findIndex(post => post.id === id);
+    let index = posts.findIndex(x => x.id === post.id);
 
     posts.splice(index, 1);
     this.setState({posts: posts});

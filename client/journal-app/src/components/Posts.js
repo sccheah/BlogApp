@@ -3,8 +3,8 @@ import PostItem from './PostItem';
 
 class Posts extends Component {
 
-  deletePost(id) {
-    this.props.onDelete(id);
+  deletePost(post) {
+    this.props.onDelete(post);
   }
 
   render() {

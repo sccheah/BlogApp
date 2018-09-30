@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 // displays a single post's content
 class PostItem extends Component {
 
-  deletePost(id) {
-    this.props.onDelete(id);
+  deletePost(post) {
+    this.props.onDelete(post);
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.deletePost.bind(this, this.props.post.id)}>X</button>
+        <button onClick={this.deletePost.bind(this, this.props.post)}>X</button>
         {this.props.post.content}
       </div>
     );
