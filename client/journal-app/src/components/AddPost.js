@@ -28,11 +28,18 @@ class AddPost extends Component {
   }
 
   render() {
+    let inputStyle = {
+      'height': '200px',
+      'width': '400px',
+      'border': 'solid 1px black'
+    }
+
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="post" />
-          <input type="submit" value="Submit" /> 
+          <textarea type="text" ref="post" style={inputStyle} placeholder="type a post"/>
+          <br />
+          <input className="btn btn-primary btn-sm" type="submit" value="Submit" /> 
         </form>
       </div>
     );

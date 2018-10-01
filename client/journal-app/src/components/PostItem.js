@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 // displays a single post's content
 class PostItem extends Component {
-
   deletePost(post) {
     this.props.onDelete(post);
   }
 
   render() {
+    let pstyle = {
+      'wordWrap': 'break-word'
+    };
+
     return (
       <div>
-        <button onClick={this.deletePost.bind(this, this.props.post)}>X</button>
-        {this.props.post.content}
+        <Button className="btn btn-danger btn-sm" onClick={this.deletePost.bind(this, this.props.post)}>X</Button>
+        <div>
+          <p style={pstyle}>{this.props.post.content}</p>
+        </div>
+        
       </div>
     );
   }

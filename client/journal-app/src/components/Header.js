@@ -13,7 +13,7 @@ class Header extends Component {
 
     return (
       <header style={headerStyle}>
-        JournalApp
+        <strong>JournalApp</strong>
       </header>
     );
   }

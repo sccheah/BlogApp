@@ -20,7 +20,7 @@ class Posts extends Component {
 
     return (
       <div>
-        <h3>Posts</h3>
+        <h3><strong>Posts</strong></h3>
         {postItems} 
       </div>
     );
