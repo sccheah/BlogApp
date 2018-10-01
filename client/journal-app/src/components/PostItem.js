@@ -4,7 +4,11 @@ import { Button } from 'reactstrap';
 // displays a single post's content
 class PostItem extends Component {
   deletePost(post) {
-    this.props.onDelete(post);
+    let confirmation = window.confirm("Delete this post?");
+
+    if (confirmation) {
+      this.props.onDelete(post);
+    }
   }
 
   render() {
