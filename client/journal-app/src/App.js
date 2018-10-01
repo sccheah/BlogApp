@@ -71,9 +71,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Header />
-      <AddPost addPost={this.handleAddPost.bind(this)} />
-      <Posts onDelete={this.handleDeletePost.bind(this)} posts={this.state.posts} />
+        <Header />
+        <div className="addPost">
+          <AddPost addPost={this.handleAddPost.bind(this)} />
+        </div>
+        <div className="postDisplay">
+          <Posts onDelete={this.handleDeletePost.bind(this)} posts={this.state.posts} />
+        </div>
       </div>
     );
   }

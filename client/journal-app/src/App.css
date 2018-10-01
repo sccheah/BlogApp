@@ -1,0 +1,10 @@
+.addPost {
+  text-align: center;
+  margin: 10px 10px 0px 10px;
+}
+
+.postDisplay {
+  text-align: center;
+  margin-top: 15px;
+  background-color: lightgray;
+}
